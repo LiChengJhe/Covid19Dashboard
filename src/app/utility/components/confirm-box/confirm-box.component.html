@@ -1,0 +1,27 @@
+<div #Modal class="modal fade">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content">
+      <div [ngClass]="this.Title.NgClass">
+        <h5 class="modal-title">{{this.Title.Text}}</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+              <h5>{{this.Message}}</h5>
+      </div>
+      <div class="modal-footer">
+   
+            <div class="btn-group w-100">
+              <button *ngIf="this.SecondaryBtn" type="button" class="btn btn-secondary text-white"
+                (click)="this.SecondaryBtn.Callback()">
+                {{this.SecondaryBtn.Mode}}  <fa-icon  [icon]="['fa',Icon[this.SecondaryBtn.Mode]]" size="lg" ></fa-icon> </button>
+              <button *ngIf="this.PrimaryBtn" type="button" class="btn btn-primary text-white"
+                (click)="this.PrimaryBtn.Callback()">
+                {{this.PrimaryBtn.Mode}} <fa-icon  [icon]="['fa',Icon[this.PrimaryBtn.Mode]]" size="lg" ></fa-icon></button>
+            </div>
+         
+      </div>
+    </div>
+  </div>
+</div>

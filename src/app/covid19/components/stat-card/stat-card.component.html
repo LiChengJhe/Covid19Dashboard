@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col">
+            <div class="card text-white bg-info mb-3 text-center card-size">
+                <div class="card-header card-header-text-size">確診(總)</div>
+                <div class="card-body">
+                    <h1 class="card-title">{{this.Stat?.Confirmed}}</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-danger mb-3 text-center card-size">
+                <div class="card-header card-header-text-size">死亡(總)</div>
+                <div class="card-body">
+                    <h1 class="card-title">{{this.Stat.Recovered}}</h1>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col">
+            <div class="card text-white bg-warning mb-3 text-center card-size">
+                <div class="card-header card-header-text-size">重症(總)</div>
+                <div class="card-body">
+                    <h1 class="card-title">{{this.Stat.Critical}}</h1>
+                </div>
+            </div>
+        </div> -->
+        <div class="col">
+            <div class="card text-white bg-success mb-3 text-center card-size">
+                <div class="card-header card-header-text-size">治癒(總)</div>
+                <div class="card-body">
+                    <h1 class="card-title">{{this.Stat.Deaths}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

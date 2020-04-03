@@ -1,0 +1,339 @@
+/* You can add global styles to this file, and also import other style files */
+
+.dropdown-submenu {
+    position: relative;
+  }
+  
+  .dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+  }
+  
+  .dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    Width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-Width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+  }
+  
+  .dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+  }
+  
+  .dropdown-submenu.pull-left {
+    float: none;
+  }
+  
+  .dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+  }
+  
+  
+  
+  .fab-btn-group {
+    position: fixed;
+    z-index: 1;
+    right: 25px;
+    top: 60vh
+  }
+  
+  .fab-btn {
+    Width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin: 5px 0;
+  }
+  
+
+
+  #toast-container > div {
+    opacity:1;
+  }
+
+
+  .bg-hot-pink {
+    background-color: #FF69B4;
+  }
+  
+  .bg-indian-red {
+    background-color: #CD5C5C;
+  }
+  
+  .bg-rebecca-purple {
+    background-color: #663399;
+  }
+  
+  .bg-dark-slate-blue {
+    background-color: #483D8B
+  }
+  
+  .bg-gold {
+    background-color: #FFD700
+  }
+  
+  .bg-light-sea-green {
+    background-color: #20B2AA
+  }
+  
+  .bg-medium-aqua-marine {
+    background-color: #66CDAA
+  }
+  
+  .bg-medium-sea-green {
+    background-color: #3CB371
+  }
+  
+  .bg-orchid {
+    background-color: #DA70D6
+  }
+  
+  .bg-pale-violet-red {
+    background-color: #DB7093
+  }
+  
+  .bg-plum {
+    background-color: #DDA0DD
+  }
+  
+  .bg-purple {
+    background-color: #800080
+  }
+  
+  .bg-rosy-brown {
+    background-color: #BC8F8F
+  }
+  
+  .bg-sienna {
+    background-color: #A0522D
+  }
+  
+  .bg-silver {
+    background-color: #C0C0C0
+  }
+  
+  .bg-tomato {
+    background-color: #FF6347
+  }
+  
+  .bg-teal {
+    background-color: #008080
+  }
+  
+  .bg-thistle {
+    background-color: #D8BFD8
+  }
+  
+  .bg-dark-golden-rod {
+    background-color: #B8860B
+  }
+  
+  .bg-dark-cyan {
+    background-color: #008B8B
+  }
+  
+  .bg-olive {
+    background-color: #808000
+  }
+  
+  .bg-olive-drab {
+    background-color: #6B8E23
+  }
+  
+  .bg-orange {
+    background-color: #FFA500
+  }
+  
+  .bg-orange-red {
+    background-color: #FF4500
+  }
+  
+  .bg-peru {
+    background-color: #CD853F
+  }
+  
+  .bg-plum {
+    background-color: #DDA0DD
+  }
+  
+  .bg-pink {
+    background-color: #FFC0CB
+  }
+  
+  .bg-saddle-brown {
+    background-color: #8B4513
+  }
+  
+  .bg-salmon {
+    background-color: #FA8072
+  }
+  
+  .bg-sandy-brown {
+    background-color: #F4A460
+  }
+  
+  .bg-sea-green {
+    background-color: #2E8B57
+  }
+  
+  .bg-steel-blue {
+    background-color: #4682B4
+  }
+  
+  .bg-tan {
+    background-color: #D2B48C
+  }
+
+
+  .bg-check{
+    background-color:rgb(225, 105, 180)
+  }
+
+  .bg-corr{
+    background-color:rgb(0, 255, 255)
+  }
+
+  .bg-eng{
+    background-color:rgb(0, 0, 255)
+  }
+
+  .bg-idle{
+    background-color:rgb(255, 255, 0)
+  }
+
+  .bg-ins{
+    background-color:rgb(222, 184, 135)
+  }
+
+  .bg-mbd{
+    background-color:rgb(255, 0, 0)
+  }
+  .bg-down{
+    background-color:rgb(255, 0, 0)
+  }
+  .bg-alarm{
+    background-color:rgb(255, 0, 0)
+  }
+  .bg-off{
+    background-color:rgb(165, 42, 42)
+  }
+
+  .bg-qcheck{
+    background-color:rgb(255, 182, 193)
+  }
+
+  .bg-rpe{
+    background-color:rgb(0, 250, 154)
+  }
+
+  .bg-rpm{
+    background-color:rgb(128, 0, 128)
+  }
+  .bg-rpe{
+    background-color:rgb(0, 250, 154)
+  }
+
+  .bg-run{
+    background-color:rgb(0, 255, 0)
+  }
+
+  .bg-setup{
+    background-color:rgb(255, 165, 0)
+  }
+
+  .bg-wait{
+    background-color:rgb(192, 192, 192)
+  }
+
+  .bg-ins-warm-up{
+    background-color:rgb(129, 89, 35)
+  }
+
+  .bg-qck2{
+    background-color:rgb(255, 182, 193)
+  }
+  .bg-unknown{
+    background-color:rgb(217, 217, 217)
+  }
+  .bg-unknown2{
+    background-color:rgb(217, 217, 217)
+  }
+
+  .bg-saw-wait{
+    background-color:rgb(217, 217, 217)
+  }
+
+  .bg-cp-load{
+    background-color:rgb(169, 208, 142)
+  }
+
+  .bg-cp-unload{
+    background-color:rgb(226, 239, 218)
+  }
+
+  .bg-cp-probing{
+    background-color:rgb(51, 204, 51)
+  }
+
+  .bg-cp-needle-clean{
+    background-color:rgb(55, 86, 35)
+  }
+
+  .bg-aoi-wafer-load{
+    background-color:rgb(198, 224, 180)
+  }
+
+  .bg-aoi-wafer-unload{
+    background-color:rgb(198, 224, 180)
+  }
+
+  .bg-aoi-pre-scan{
+    background-color:rgb(0,204,102)
+  }
+
+  .bg-aoi-color-photo{
+    background-color:rgb(84,130,53)
+  }
+
+  .bg-gnd-run-pause{
+    background-color:rgb(198, 224, 180)
+  }
+
+  .bg-gnd-run-adjust{
+    background-color:rgb(198, 224, 180)
+  }
+
+  .bg-gnd-warn-up{
+    background-color:rgb(198, 224, 180)
+  }
+
+  .bg-cst-arrived{
+    background-color:rgb(196, 247, 83)
+  }
+
+  .bg-cst-remove{
+    background-color:rgb(196, 247, 83)
+  }
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

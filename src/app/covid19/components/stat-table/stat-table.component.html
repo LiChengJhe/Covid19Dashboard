@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row justify-content-center text-center">
+        <p-table #dt [value]="TableData"  [columns]="TableCols" [globalFilterFields]="this.TableFilterCols"
+            [paginator]="true" [rows]="10" [scrollable]="true" scrollHeight="75vh"
+            [ngClass]="browser.IsIE()?['w-100']:[]">
+            <ng-template pTemplate="caption">
+                <div class="row justify-content-start">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-info" type="button">
+                                    <fa-icon [icon]="[this.IconType.Fas,Icon[BtnType.Filter]]" size="lg"></fa-icon>
+                                  </button>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Global filter"
+                                (input)="dt.filterGlobal($event.target.value, 'contains')">
+                        </div>
+                    </div>
+
+                </div>
+            </ng-template>
+
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns" [pSortableColumn]="col.Field"
+                        [ngStyle]="col.Width?{'width': col.Width}:{}">
+                        <p class="text-center">{{col.Header}}
+                            <p-sortIcon [field]="col.Field"></p-sortIcon>
+                        </p>
+                    </th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-row let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns" [ngStyle]="col.Width?{'width': col.Width}:{}">
+                        
+                        <ng-container [ngSwitch]="col.Field">
+                            <ng-container *ngSwitchCase="'RecoveredRate'">
+                                <p class=" text-wrap text-break m-0">
+                                    <p class=" text-success text-wrap text-break m-0"> {{row[col.Field]}}%</p>
+                              </ng-container>
+                              <ng-container *ngSwitchCase="'MildRate'">
+                                <p class=" text-wrap text-break m-0">
+                                    <p class=" text-info text-wrap text-break m-0"> {{row[col.Field]}}%</p>
+                              </ng-container>
+                              <ng-container *ngSwitchCase="'CriticalRate'">
+                                <p class=" text-wrap text-break m-0">
+                                    <p class=" text-warning text-wrap text-break m-0"> {{row[col.Field]}}%</p>
+                              </ng-container>
+                              <ng-container *ngSwitchCase="'DeathRate'">
+                                <p class=" text-wrap text-break m-0">
+                                    <p class=" text-danger text-wrap text-break m-0"> {{row[col.Field]}}%</p>
+                              </ng-container>
+                            <ng-container *ngSwitchDefault>
+                                <p class=" text-wrap text-break m-0"> {{row[col.Field]}}</p>
+                            </ng-container>
+                        </ng-container>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
