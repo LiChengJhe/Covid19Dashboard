@@ -66,9 +66,6 @@ export class TotalStatLineChartComponent implements OnInit, OnChanges {
       Xaxis: {
         type: 'datetime',
         categories: this.GetDate(stats),
-        title: {
-          text: '日期'
-        }
       },
       Yaxis: {
         title: {

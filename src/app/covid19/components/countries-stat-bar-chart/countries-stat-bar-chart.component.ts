@@ -58,12 +58,12 @@ export class CountriesStatBarChartComponent implements OnInit, OnChanges {
       Xaxis: {
         categories: this.GetCountries(stats, top),
         title: {
-          text: '國家'
+          text: '確診(總)'     
         }
       },
       Yaxis: {
         title: {
-          text: '確診(總)'
+          text: '國家'
         }
       },
       Title: {
