@@ -1,10 +1,14 @@
 # Covid19Dashboard
-
+[Demo covid-19-online](https://lichengjhe.github.io/covid-19-online/index.html)
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
 
-## Development server
+## Install Development Environment
+1.Node.js
+2.Run `npm install -g  npm @angular/cli typescript tslint rxjs-tslint eslint`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Development server
+1.Run `npm install` 
+2.Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
