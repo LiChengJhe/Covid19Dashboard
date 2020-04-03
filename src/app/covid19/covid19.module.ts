@@ -11,12 +11,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { TotalStatLineChartComponent } from './components/total-stat-line-chart/total-stat-line-chart.component';
 
+import { CountriesStatBarChartComponent } from './components/countries-stat-bar-chart/countries-stat-bar-chart.component';
+
 @NgModule({
   declarations: [
     DashboardPageComponent,
     StatCardComponent,
     StatTableComponent,
-    TotalStatLineChartComponent
+    TotalStatLineChartComponent,
+    CountriesStatBarChartComponent
   ],
   imports: [
     CommonModule,

@@ -8,7 +8,8 @@ import {
     ApexYAxis,
     ApexGrid,
     ApexTitleSubtitle,
-    ApexLegend
+    ApexLegend,
+    ApexPlotOptions
   } from 'ng-apexcharts';
   
 export class ChartOptions {
@@ -23,4 +24,5 @@ export class ChartOptions {
     Grid?: ApexGrid;
     Legend?: ApexLegend;
     Title?: ApexTitleSubtitle;
+    PlotOptions?: ApexPlotOptions;
   };

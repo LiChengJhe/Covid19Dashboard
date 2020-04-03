@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Covid19SourceService } from '../../services/covid19-source.service';
-import { Observable, forkJoin } from 'rxjs';
+import { Observable, forkJoin, timer } from 'rxjs';
 import { Country, Stat, CountryStat } from '../../models/covid19-model';
 import { FormGroup, FormControl } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { HttpCallbackService } from 'src/app/utility/services/http/http-callback.service';
 import * as _ from 'lodash';
+import { BtnType, IconType, Icon } from 'src/app/utility/models/btn';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -21,6 +22,9 @@ export class DashboardPageComponent implements OnInit {
   SelectedCountryStat: CountryStat;
   SelectedHistoricalCountryStats: CountryStat;
   Form: FormGroup;
+  BtnType = BtnType;
+  Icon = Icon;
+  IconType = IconType;
   constructor(
     private covid19SourceService: Covid19SourceService,
     private httpCallback: HttpCallbackService) { }
@@ -28,7 +32,8 @@ export class DashboardPageComponent implements OnInit {
   ngOnInit(): void {
 
     this.LoadData();
-    this.SetForm({});
+    this.SetForm({ Country: 'Taiwan' });
+    timer(1000).subscribe(()=>this.CountryOnChange());
   }
 
   SetForm(data: any): void {
@@ -62,6 +67,7 @@ export class DashboardPageComponent implements OnInit {
 
   CountryOnChange(): void {
     const country: Country = _.find(this.Countries, (o) => o.Name == this.Form.value.Country);
+    console.log(country);
     if (country) {
 
       forkJoin([
@@ -69,12 +75,12 @@ export class DashboardPageComponent implements OnInit {
         this.covid19SourceService.GetHistoricalCountryStatsByCountry(country)
       ]
       ).pipe(
-        map(([CountryStat,HistoricalCountryStats]) => {
-          return { CountryStat,HistoricalCountryStats };
+        map(([CountryStat, HistoricalCountryStats]) => {
+          return { CountryStat, HistoricalCountryStats };
         })
       ).subscribe((data) => {
         this.SelectedCountryStat = data.CountryStat;
-        this. SelectedHistoricalCountryStats= data.HistoricalCountryStats ;
+        this.SelectedHistoricalCountryStats = data.HistoricalCountryStats;
 
       }, this.httpCallback.Error);
 

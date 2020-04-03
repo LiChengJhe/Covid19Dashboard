@@ -49,9 +49,10 @@ export class TotalStatLineChartComponent implements OnInit, OnChanges {
         curve: 'smooth'
       },
       Title: {
-        text: '確診/死亡/治癒',
+        text: '趨勢圖(確診/死亡/治癒)',
         align: 'left'
       },
+      Colors: ['#6aa1e2','#ff0000','#5fb500'],
       Grid: {
         borderColor: '#e7e7e7',
         row: {
@@ -71,14 +72,14 @@ export class TotalStatLineChartComponent implements OnInit, OnChanges {
       },
       Yaxis: {
         title: {
-          text: '總數'
+          text: '確診/死亡/治癒(總)'
         }
       },
       Legend: {
         position: 'top',
         horizontalAlign: 'right',
         floating: true,
-        offsetY: -25,
+        offsetY: -10,
         offsetX: -5
       }
     };

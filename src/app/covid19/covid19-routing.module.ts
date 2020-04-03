@@ -5,17 +5,11 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
 
 const routes: Routes = [
   {
-    path: 'covid-19',
-
-    children: [
-      {
-        path: 'dashboard',
-        component: DashboardPageComponent
-      }
-    ]
+    path: 'dashboard',
+    component: DashboardPageComponent
   },
-  { path: '', redirectTo: 'covid-19/dashboard', pathMatch: 'full' },
-  { path: '**', redirectTo: 'covid-19/dashboard' }
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '**', redirectTo: 'dashboard' }
 ];
 
 @NgModule({

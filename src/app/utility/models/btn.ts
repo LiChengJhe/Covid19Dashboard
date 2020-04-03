@@ -121,7 +121,13 @@ export enum BtnType {
   Load = 'Load',
   Move = 'Move',
   Virus = 'Virus',
-  Chart='Chart'
+  Chart='Chart',
+  Smile='Smile',
+  Frown='Frown',
+  Dizzy="Dizzy",
+  Flag='Flag',
+  Global='Global',
+  Covid19='Covid19'
 }
 
 export enum Icon {
@@ -203,7 +209,13 @@ export enum Icon {
   Load = 'spinner',
   Move = 'arrow-alt-circle-right',
   Virus = 'virus',
-  Chart='chart-line'
+  Chart='chart-line',
+  Smile='smile',
+  Frown='frown',
+  Dizzy='dizzy',
+  Flag='flag',
+  Global='globe-americas',
+  Covid19='lungs-virus'
 }
 
 export enum IconType {

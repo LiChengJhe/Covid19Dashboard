@@ -2,10 +2,10 @@
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#Global">全球統計</a>
+                <a class="nav-link active" data-toggle="tab" href="#Global"><fa-icon [icon]="[this.IconType.Fas,Icon[BtnType.Global]]" size="lg"></fa-icon> 全球統計</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#Country">各國統計</a>
+                <a class="nav-link" data-toggle="tab" href="#Country"><fa-icon [icon]="[this.IconType.Fas,Icon[BtnType.Flag]]" size="lg"></fa-icon> 各國統計</a>
             </li>
         </ul>
 
@@ -26,12 +26,20 @@
                             </app-total-stat-line-chart>
                         </div>
                     </div>
+
+                    <ng-container *ngIf="this.CountryStats">
+                    <div  class="row justify-content-center">
+                        <div class="col">
+                            <app-countries-stat-bar-chart [CountryStats]="this.CountryStats" [Top]="10"></app-countries-stat-bar-chart>
+                        </div>
+                    </div>
+                   
                     <div class="row justify-content-center">
                         <div class="col">
                             <app-stat-table [CountryStats]="this.CountryStats"></app-stat-table>
                         </div>
                     </div>
-
+                </ng-container>
 
                 </div>
             </div>
@@ -74,7 +82,7 @@
                                 </app-total-stat-line-chart>
                             </div>
                         </div>
-                        <div class="row justify-content-center">
+                        <div *ngIf="this.SelectedCountryStat" class="row justify-content-center">
                             <div class="col">
                                 <app-stat-table [CountryStats]="[this.SelectedCountryStat]"></app-stat-table>
                             </div>

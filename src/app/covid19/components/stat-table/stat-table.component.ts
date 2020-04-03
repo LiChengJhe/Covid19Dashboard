@@ -60,7 +60,7 @@ export class StatTableComponent implements OnInit, OnChanges {
   SetTableData(list: CountryStat[]): void {
     const table: StatTable[] = [];
     list.forEach((item) => {
-      const prvStat: Stat = item.Stats[item.Stats.length-1];
+      const prvStat: Stat = item.Stats[item.Stats.length - 1];
       const lastStat: Stat = _.last(item.Stats);
       table.push({
         Country: item.Country.Name,
@@ -73,7 +73,7 @@ export class StatTableComponent implements OnInit, OnChanges {
         DeathRate: lastStat.DeathRate,
         RecoveredRate: lastStat.RecoveredRate,
         CriticalRate: lastStat.CriticalRate,
-        MildRate: lastStat. MildRate
+        MildRate: lastStat.MildRate
       });
     });
     this.TableData = table;
@@ -84,8 +84,8 @@ export class StatTableComponent implements OnInit, OnChanges {
       { Field: 'TodayConfirmed', Header: '確診(今日)' },
       { Field: 'TodayDeaths', Header: '死亡(今日)' },
       { Field: 'TotalConfirmed', Header: '確診(總)' },
-      { Field: 'TotalRecovered', Header: '治癒(總)' },
       { Field: 'TotalDeaths', Header: '死亡(總)' },
+      { Field: 'TotalRecovered', Header: '治癒(總)' },
       { Field: 'RecoveredRate', Header: '治癒率' },
       { Field: 'MildRate', Header: '輕症率' },
       { Field: 'CriticalRate', Header: '重症率' },
