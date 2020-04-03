@@ -1,10 +1,10 @@
 # Covid19Dashboard
-[Demo covid-19-online](https://lichengjhe.github.io/covid-19-online/index.html)
+    [Demo covid-19-online](https://lichengjhe.github.io/covid-19-online/index.html)
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
 
 ## Install Development Environment
-1.Node.js
-2.Run `npm install -g  npm @angular/cli typescript tslint rxjs-tslint eslint`
+    1.Node.js
+    2.Run `npm install -g  npm @angular/cli typescript tslint rxjs-tslint eslint`
 
 ## Development server
 1.Run `npm install` 
