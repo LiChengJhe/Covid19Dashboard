@@ -5,7 +5,7 @@
                 <div class="card-header card-header-text-size">  
                      <fa-icon [icon]="[this.IconType.Fas,Icon[BtnType.Frown]]" size="lg"></fa-icon> 確診(總)</div>
                 <div class="card-body">
-                    <h1 class="card-title">{{this.Stat?.Confirmed}}</h1>
+                    <p class="card-title card-body-text-size" >{{this.Stat?.Confirmed}}</p>
                 </div>
             </div>
         </div>
@@ -15,7 +15,7 @@
             <div class="card text-white bg-success mb-3 text-center card-size">
                 <div class="card-header card-header-text-size"><fa-icon [icon]="[this.IconType.Fas,Icon[BtnType.Smile]]" size="lg"></fa-icon> 治癒(總)</div>
                 <div class="card-body">
-                    <h1 class="card-title">{{this.Stat.Recovered}}</h1>
+                    <p class="card-title card-body-text-size">{{this.Stat.Recovered}}</p>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
             <div class="card text-white bg-danger mb-3 text-center card-size">
                 <div class="card-header card-header-text-size"><fa-icon [icon]="[this.IconType.Fas,Icon[BtnType.Dizzy]]" size="lg"></fa-icon> 死亡(總)</div>
                 <div class="card-body">
-                    <h1 class="card-title">{{this.Stat.Deaths}}</h1>
+                    <p class="card-title card-body-text-size">{{this.Stat.Deaths}}</p>
                 </div>
             </div>
         </div>

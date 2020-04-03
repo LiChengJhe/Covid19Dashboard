@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <ng-container *ngIf="this.Countries">
+            <form [formGroup]="this.Form" class="col">
+                <div class="form-row">
+                    <div class="form-group col">
+                        <h2 style="display:inline">
+                            <span class="badge badge-light w-100 text-left">國家
+                            </span>
+                        </h2>
+                        <select formControlName="Country" class="form-control"
+                            (change)="this.CountryOnChange()">
+                            <option *ngFor="let country of this.Countries" value="{{country.Name}}">
+                                {{country.Name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+            </form>
+
+        </ng-container>
+
+    </div>
+    <ng-container *ngIf="this.SelectedCountryStat">
+        <div class="row justify-content-center">
+            <div class="col">
+                <app-stat-card
+                    [Stat]="this.SelectedCountryStat.Stats[this.SelectedCountryStat.Stats.length-1]">
+                </app-stat-card>
+            </div>
+        </div>
+        <div *ngIf="this.SelectedHistoricalCountryStats" class="row justify-content-center">
+            <div class="col">
+                <app-total-stat-line-chart [Stats]="this.SelectedHistoricalCountryStats.Stats">
+                </app-total-stat-line-chart>
+            </div>
+        </div>
+        <div *ngIf="this.SelectedCountryStat" class="row justify-content-center">
+            <div class="col">
+                <app-stat-table [CountryStats]="[this.SelectedCountryStat]"></app-stat-table>
+            </div>
+        </div>
+    </ng-container>
+</div>

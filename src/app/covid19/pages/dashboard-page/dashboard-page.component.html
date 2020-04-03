@@ -1,94 +1,22 @@
-<div class="card rounded-0 w-100 h-100">
+<div class="card rounded-0 w-100 h-100" >
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#Global"><fa-icon [icon]="[this.IconType.Fas,Icon[BtnType.Global]]" size="lg"></fa-icon> 全球統計</a>
+               <a class="nav-link active" data-toggle="tab" href="#Global"> <fa-icon [icon]="[this.IconType.Fas,Icon[BtnType.Global]]" size="lg"></fa-icon> <b> 全球統計</b></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#Country"><fa-icon [icon]="[this.IconType.Fas,Icon[BtnType.Flag]]" size="lg"></fa-icon> 各國統計</a>
+                <a class="nav-link" data-toggle="tab" href="#Country"><fa-icon [icon]="[this.IconType.Fas,Icon[BtnType.Flag]]" size="lg"></fa-icon> <b> 各國統計</b></a>
             </li>
         </ul>
 
     </div>
-    <div class="card-body overflow-auto h-100">
+    <div class="card-body overflow-auto h-100" >
         <div class="tab-content">
             <div class="tab-pane fade show active" id="Global">
-                <div class="container">
-                    <div *ngIf="this.GlobalStats" class="row justify-content-center">
-                        <div class="col">
-                            <app-stat-card [Stat]="this.GlobalStats[1]"></app-stat-card>
-                        </div>
-
-                    </div>
-                    <div *ngIf="this.GlobalHistoricalStats" class="row justify-content-center">
-                        <div class="col">
-                            <app-total-stat-line-chart [Stats]="this.GlobalHistoricalStats">
-                            </app-total-stat-line-chart>
-                        </div>
-                    </div>
-
-                    <ng-container *ngIf="this.CountryStats">
-                    <div  class="row justify-content-center">
-                        <div class="col">
-                            <app-countries-stat-bar-chart [CountryStats]="this.CountryStats" [Top]="10"></app-countries-stat-bar-chart>
-                        </div>
-                    </div>
-                   
-                    <div class="row justify-content-center">
-                        <div class="col">
-                            <app-stat-table [CountryStats]="this.CountryStats"></app-stat-table>
-                        </div>
-                    </div>
-                </ng-container>
-
-                </div>
+                <app-global-stat-container></app-global-stat-container>
             </div>
             <div class="tab-pane fade" id="Country">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <ng-container *ngIf="this.Countries">
-                            <form [formGroup]="this.Form" class="col">
-                                <div class="form-row">
-                                    <div class="form-group col">
-                                        <h2 style="display:inline">
-                                            <span class="badge badge-light w-100 text-left">國家
-                                            </span>
-                                        </h2>
-                                        <select formControlName="Country" class="form-control"
-                                            (change)="this.CountryOnChange()">
-                                            <option *ngFor="let country of this.Countries" value="{{country.Name}}">
-                                                {{country.Name}}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </form>
-
-                        </ng-container>
-
-                    </div>
-                    <ng-container *ngIf="this.SelectedCountryStat">
-                        <div class="row justify-content-center">
-                            <div class="col">
-                                <app-stat-card
-                                    [Stat]="this.SelectedCountryStat.Stats[this.SelectedCountryStat.Stats.length-1]">
-                                </app-stat-card>
-                            </div>
-                        </div>
-                        <div *ngIf="this.SelectedHistoricalCountryStats" class="row justify-content-center">
-                            <div class="col">
-                                <app-total-stat-line-chart [Stats]="this.SelectedHistoricalCountryStats.Stats">
-                                </app-total-stat-line-chart>
-                            </div>
-                        </div>
-                        <div *ngIf="this.SelectedCountryStat" class="row justify-content-center">
-                            <div class="col">
-                                <app-stat-table [CountryStats]="[this.SelectedCountryStat]"></app-stat-table>
-                            </div>
-                        </div>
-                    </ng-container>
-                </div>
+                <app-country-stat-container></app-country-stat-container>
             </div>
         </div>
     </div>

@@ -12,6 +12,9 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { TotalStatLineChartComponent } from './components/total-stat-line-chart/total-stat-line-chart.component';
 
 import { CountriesStatBarChartComponent } from './components/countries-stat-bar-chart/countries-stat-bar-chart.component';
+import { CountriesStatLineChartComponent } from './components/countries-stat-line-chart/countries-stat-line-chart.component';
+import { GlobalStatContainerComponent } from './containers/global-stat-container/global-stat-container.component';
+import { CountryStatContainerComponent } from './containers/country-stat-container/country-stat-container.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { CountriesStatBarChartComponent } from './components/countries-stat-bar-
     StatCardComponent,
     StatTableComponent,
     TotalStatLineChartComponent,
-    CountriesStatBarChartComponent
+    CountriesStatBarChartComponent,
+    CountriesStatLineChartComponent,
+    GlobalStatContainerComponent,
+    CountryStatContainerComponent
   ],
   imports: [
     CommonModule,

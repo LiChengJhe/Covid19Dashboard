@@ -18,18 +18,18 @@ export class CountriesStatBarChartComponent implements OnInit, OnChanges {
 
   }
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.CountryStats && this.CountryStats && this.Top) {
-      this.SetChart(this.CountryStats,this.Top);
+    if ((changes.Stats || changes.Top) && this.CountryStats && this.Top) {
+      this.SetChart(this.CountryStats, this.Top);
     }
 
   }
   ngOnInit(): void {
-  
+
   }
 
   SetChart(stats: CountryStat[], top: number): void {
     this.ChartOptions = {
-      Series: this.GetSeries(stats,top),
+      Series: this.GetSeries(stats, top),
       Chart: {
         type: 'bar',
         height: 350
@@ -56,21 +56,21 @@ export class CountriesStatBarChartComponent implements OnInit, OnChanges {
         colors: ['#fff'],
       },
       Xaxis: {
-        categories: this.GetCountries(stats,top),
+        categories: this.GetCountries(stats, top),
         title: {
           text: '國家'
         }
       },
       Yaxis: {
         title: {
-          text: '確診/死亡/治癒(總)'
+          text: '確診(總)'
         }
       },
       Title: {
         text: `前${top}大確診國家`,
         align: 'left'
       },
-      Colors: ['#6aa1e2','#ff0000','#5fb500'],
+      Colors: ['#6aa1e2', '#ff0000', '#5fb500'],
       Legend: {
         position: 'top',
         horizontalAlign: 'right',
@@ -97,6 +97,6 @@ export class CountriesStatBarChartComponent implements OnInit, OnChanges {
   }
   GetCountries(stats: CountryStat[], top: number): string[] {
 
-    return _.chain(stats).orderBy(o => _.last(o.Stats).Confirmed).reverse().take(top).map(o=>o.Country.Name).value();
+    return _.chain(stats).orderBy(o => _.last(o.Stats).Confirmed).reverse().take(top).map(o => o.Country.Name).value();
   }
 }
