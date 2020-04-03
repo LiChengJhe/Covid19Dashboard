@@ -48,7 +48,7 @@ export class CountriesStatLineChartComponent implements OnInit, OnChanges {
         curve: 'smooth'
       },
       Title: {
-        text: `前${top}大國家確診趨勢圖`,
+        text: `前${top}大確診國家趨勢圖`,
         align: 'left'
       },
       Grid: {
