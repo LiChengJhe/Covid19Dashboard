@@ -16,7 +16,7 @@ import { map } from 'rxjs/operators';
 export class GlobalStatContainerComponent implements OnInit {
 
   GlobalHistoricalStats: Stat[];
-  GlobalStats: Stat[];
+  GlobalStat: Stat;
   CountryStats: CountryStat[];
   HistoricalCountryStats: CountryStat[];
   Form: FormGroup;
@@ -39,17 +39,16 @@ export class GlobalStatContainerComponent implements OnInit {
 
   LoadData(callback?: (params: any) => void): void {
     forkJoin([
-      this.covid19SourceService.GetGlobalStats(),
       this.covid19SourceService.GetGlobalHistoricalStats(),
       this.covid19SourceService.GetCountryStats(),
       this.covid19SourceService.GetHistoricalCountryStats(),
     ]
     ).pipe(
-      map(([ GlobalStats, GlobalHistoricalStats, CountryStats,HistoricalCountryStats]) => {
-        return { GlobalStats, GlobalHistoricalStats, CountryStats ,HistoricalCountryStats};
+      map(([ GlobalHistoricalStats, CountryStats,HistoricalCountryStats]) => {
+        return {  GlobalHistoricalStats, CountryStats ,HistoricalCountryStats};
       })
     ).subscribe((data) => {
-      this.GlobalStats = data.GlobalStats;
+      this.GlobalStat =   this.covid19SourceService.CountGlobalStat(data.CountryStats);
       this.GlobalHistoricalStats = data.GlobalHistoricalStats;
       this.CountryStats = data.CountryStats;
       this.HistoricalCountryStats = data.HistoricalCountryStats;

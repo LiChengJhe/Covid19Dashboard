@@ -143,50 +143,33 @@ export class Covid19SourceService {
       }));
   }
 
+  CountGlobalStat(countryStats: CountryStat[]): Stat {
+    const globalStat: Stat = {
+      Confirmed: 0,
+      Recovered: 0,
+      Deaths: 0,
+      Critical: 0,
+      RecoveredRate: 0,
+      DeathRate: 0,
+      CriticalRate: 0,
+      MildRate: 0,
+      LastUpdate: _.first(_.first(countryStats).Stats).LastUpdate
+    };
 
-  GetGlobalStats(): Observable<Stat[]> {
-
-    const url: string = this._CoronaNinjaApi.GetURL(`countries`);
-    return this.httpClient.get(url).pipe(
-      // tap((o) => console.log(o)),
-      map((list: any) => {
-
-        const lastUpdate: Date = new Date(list[0].updated);
-        // const prvUpdate: Date = new Date(list[0].updated);
-        // prvUpdate.setDate(prvUpdate.getDate() - 1);
-        const globalStat: Stat[] = [
-          {
-            Confirmed: 0,
-            Deaths: 0
-          }, {
-            Confirmed: 0,
-            Recovered: 0,
-            Deaths: 0,
-            Critical: 0,
-            RecoveredRate: 0,
-            DeathRate: 0,
-            CriticalRate: 0,
-            MildRate: 0,
-            LastUpdate: lastUpdate
-          }
-        ];
-
-        list.forEach(item => {
-          globalStat[1].Confirmed += item.cases;
-          globalStat[1].Recovered += item.recovered;
-          globalStat[1].Deaths += item.deaths;
-          globalStat[1].Critical += item.critical;
-          globalStat[0].Confirmed += item.todayCases;
-          globalStat[0].Deaths += item.todayDeaths;
-        });
-        globalStat[1].RecoveredRate = _.round((globalStat[1].Recovered / globalStat[1].Confirmed) * 100, 2);
-        globalStat[1].DeathRate = _.round((globalStat[1].Deaths / globalStat[1].Confirmed) * 100, 2);
-        globalStat[1].CriticalRate = _.round((globalStat[1].Critical / globalStat[1].Confirmed) * 100, 2);
-        globalStat[1].MildRate = 100 - globalStat[1].CriticalRate;
-        return globalStat;
-      }
-      ));
+    countryStats.forEach(item => {
+      const stat: Stat = _.first(item.Stats);
+      globalStat.Confirmed += stat.Confirmed;
+      globalStat.Recovered += stat.Recovered;
+      globalStat.Deaths += stat.Deaths;
+      globalStat.Critical += stat.Critical;
+    });
+    globalStat.RecoveredRate = _.round((globalStat.Recovered / globalStat.Confirmed) * 100, 2);
+    globalStat.DeathRate = _.round((globalStat.Deaths / globalStat.Confirmed) * 100, 2);
+    globalStat.CriticalRate = _.round((globalStat.Critical / globalStat.Confirmed) * 100, 2);
+    globalStat.MildRate = 100 - globalStat.CriticalRate;
+    return globalStat;
   }
+
 
 
 
@@ -201,10 +184,6 @@ export class Covid19SourceService {
           ISO3: item.countryInfo.iso3
         },
         Stats: [
-          {
-            Confirmed: item.todayCases,
-            Deaths: item.todayDeaths
-          },
           {
             Confirmed: item.cases,
             Recovered: item.recovered,
@@ -235,9 +214,6 @@ export class Covid19SourceService {
             },
             Stats: [
               {
-                Confirmed: item.todayCases,
-                Deaths: item.todayDeaths
-              }, {
                 Confirmed: item.cases,
                 Recovered: item.recovered,
                 Deaths: item.deaths,
@@ -245,7 +221,7 @@ export class Covid19SourceService {
                 RecoveredRate: _.round((item.recovered / item.cases) * 100, 2),
                 DeathRate: _.round((item.deaths / item.cases) * 100, 2),
                 CriticalRate: _.round((item.critical / item.cases) * 100, 2),
-                MildRate: _.round(100-(item.critical / item.cases) * 100, 2),
+                MildRate: _.round(100 - (item.critical / item.cases) * 100, 2),
                 LastUpdate: new Date(item.updated)
               }]
 
