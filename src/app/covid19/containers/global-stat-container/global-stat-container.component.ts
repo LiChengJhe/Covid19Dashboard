@@ -39,20 +39,19 @@ export class GlobalStatContainerComponent implements OnInit {
 
   LoadData(callback?: (params: any) => void): void {
     forkJoin([
+      this.covid19SourceService.GetGlobalStats(),
       this.covid19SourceService.GetGlobalHistoricalStats(),
       this.covid19SourceService.GetCountryStats(),
       this.covid19SourceService.GetHistoricalCountryStats(),
     ]
     ).pipe(
-      map(([  GlobalHistoricalStats, CountryStats,HistoricalCountryStats]) => {
-        return {  GlobalHistoricalStats, CountryStats ,HistoricalCountryStats};
+      map(([ GlobalStats, GlobalHistoricalStats, CountryStats,HistoricalCountryStats]) => {
+        return { GlobalStats, GlobalHistoricalStats, CountryStats ,HistoricalCountryStats};
       })
     ).subscribe((data) => {
-      this.GlobalStats = _.first(data.CountryStats).Stats;
-      console.log(      this.GlobalStats);
+      this.GlobalStats = data.GlobalStats;
       this.GlobalHistoricalStats = data.GlobalHistoricalStats;
-      this.CountryStats = _.tail(data.CountryStats);
-      console.log(      this.CountryStats);
+      this.CountryStats = data.CountryStats;
       this.HistoricalCountryStats = data.HistoricalCountryStats;
       if (callback) {
         callback(data);
