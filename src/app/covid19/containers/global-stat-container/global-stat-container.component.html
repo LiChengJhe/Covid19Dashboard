@@ -13,14 +13,14 @@
     </div>
     <div *ngIf="this.HistoricalCountryStats" class="row justify-content-center">
         <div class="col">
-            <app-countries-stat-line-chart [CountryStats]="this.HistoricalCountryStats" [Top]="10"></app-countries-stat-line-chart>
+            <app-country-stat-line-chart [CountryStats]="this.HistoricalCountryStats" [Top]="10"></app-country-stat-line-chart>
         </div>
     </div>
 
     <ng-container *ngIf="this.CountryStats">
     <div  class="row justify-content-center">
         <div class="col">
-            <app-countries-stat-bar-chart [CountryStats]="this.CountryStats" [Top]="10"></app-countries-stat-bar-chart>
+            <app-country-stat-bar-chart [CountryStats]="this.CountryStats" [Top]="10"></app-country-stat-bar-chart>
         </div>
     </div>
    

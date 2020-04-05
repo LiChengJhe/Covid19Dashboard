@@ -11,8 +11,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { TotalStatLineChartComponent } from './components/total-stat-line-chart/total-stat-line-chart.component';
 
-import { CountriesStatBarChartComponent } from './components/countries-stat-bar-chart/countries-stat-bar-chart.component';
-import { CountriesStatLineChartComponent } from './components/countries-stat-line-chart/countries-stat-line-chart.component';
+import { CountryStatBarChartComponent } from './components/country-stat-bar-chart/country-stat-bar-chart.component';
+import { CountryStatLineChartComponent } from './components/country-stat-line-chart/country-stat-line-chart.component';
 import { GlobalStatContainerComponent } from './containers/global-stat-container/global-stat-container.component';
 import { CountryStatContainerComponent } from './containers/country-stat-container/country-stat-container.component';
 
@@ -22,8 +22,8 @@ import { CountryStatContainerComponent } from './containers/country-stat-contain
     StatCardComponent,
     StatTableComponent,
     TotalStatLineChartComponent,
-    CountriesStatBarChartComponent,
-    CountriesStatLineChartComponent,
+    CountryStatBarChartComponent,
+    CountryStatLineChartComponent,
     GlobalStatContainerComponent,
     CountryStatContainerComponent
   ],

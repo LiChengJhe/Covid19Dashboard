@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CountriesStatBarChartComponent } from './countries-stat-bar-chart.component';
+import { CountryStatBarChartComponent } from './country-stat-bar-chart.component';
 
 describe('CountriesStatBarChartComponent', () => {
-  let component: CountriesStatBarChartComponent;
-  let fixture: ComponentFixture<CountriesStatBarChartComponent>;
+  let component: CountryStatBarChartComponent;
+  let fixture: ComponentFixture<CountryStatBarChartComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CountriesStatBarChartComponent ]
+      declarations: [ CountryStatBarChartComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CountriesStatBarChartComponent);
+    fixture = TestBed.createComponent(CountryStatBarChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

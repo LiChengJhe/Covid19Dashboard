@@ -5,11 +5,11 @@ import { ApexAxisChartSeries } from 'ng-apexcharts';
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'app-countries-stat-line-chart',
-  templateUrl: './countries-stat-line-chart.component.html',
-  styleUrls: ['./countries-stat-line-chart.component.css']
+  selector: 'app-country-stat-line-chart',
+  templateUrl: './country-stat-line-chart.component.html',
+  styleUrls: ['./country-stat-line-chart.component.css']
 })
-export class CountriesStatLineChartComponent implements OnInit, OnChanges {
+export class CountryStatLineChartComponent implements OnInit, OnChanges {
   @Input() Top: number;
   @Input() CountryStats: CountryStat[];
   public ChartOptions: ChartOptions;
