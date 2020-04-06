@@ -3,6 +3,7 @@ import { CountryStat } from '../../models/covid19-model';
 import { ChartOptions } from '../../models/chart';
 import { ApexAxisChartSeries } from 'ng-apexcharts';
 import * as _ from 'lodash';
+import { OrderType } from 'src/app/utility/models/obj';
 
 @Component({
   selector: 'app-country-stat-line-chart',
@@ -80,7 +81,7 @@ export class CountryStatLineChartComponent implements OnInit, OnChanges {
     };
   }
   GetSeries(stats: CountryStat[], top: number): ApexAxisChartSeries {
-    const topStats: CountryStat[] = _.chain(stats).orderBy(o => _.last(o.Stats).Confirmed).reverse().take(top).value();
+    const topStats: CountryStat[] = _.chain(stats).orderBy(o => _.last(o.Stats).Confirmed,OrderType.DESC).take(top).value();
     const series: ApexAxisChartSeries = [];
     topStats.forEach(item => {
       const obj: any = { name: item.Country.Name, data: [] };

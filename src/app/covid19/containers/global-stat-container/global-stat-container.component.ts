@@ -52,6 +52,7 @@ export class GlobalStatContainerComponent implements OnInit {
       this.GlobalHistoricalStats = data.GlobalHistoricalStats;
       this.CountryStats = data.CountryStats;
       this.HistoricalCountryStats = data.HistoricalCountryStats;
+      console.log(this.HistoricalCountryStats);
       if (callback) {
         callback(data);
       }

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { map, filter, tap } from 'rxjs/operators';
 import { Stat, CountryStat, Country } from '../models/covid19-model';
 import * as _ from 'lodash';
+import { OrderType } from 'src/app/utility/models/obj';
 @Injectable({
   providedIn: 'root'
 })
@@ -40,20 +41,21 @@ export class Covid19SourceService {
   GetHistoricalCountryStats(): Observable<CountryStat[]> {
     const url: string = this._CoronaNinjaApi.GetURL(`v2/historical`);
     return this.httpClient.get(url).pipe(
-      // tap((o) => console.log(o)),
+      tap((o) => console.log(o)),
       map((list: any) => {
 
         let countryStatsMap: { [key: string]: CountryStat } = {};
         list.forEach(element => {
+          const queryKey = `${element.country}-${element.province}`;
 
-          countryStatsMap[element.country] = {
+          countryStatsMap[queryKey] = {
             Country: { Name: element.country },
             Stats: []
           };
 
           // tslint:disable-next-line: forin
           for (const item in element.timeline.cases) {
-            countryStatsMap[element.country].Stats.push({
+            countryStatsMap[queryKey].Stats.push({
               Confirmed: element.timeline.cases[item],
               Recovered: element.timeline.recovered[item],
               Deaths: element.timeline.deaths[item],
@@ -153,11 +155,11 @@ export class Covid19SourceService {
       DeathRate: 0,
       CriticalRate: 0,
       MildRate: 0,
-      LastUpdate: _.first(_.first(countryStats).Stats).LastUpdate
+      LastUpdate: _.first(_.last(countryStats).Stats).LastUpdate
     };
 
     countryStats.forEach(item => {
-      const stat: Stat = _.first(item.Stats);
+      const stat: Stat = _.last(item.Stats);
       globalStat.Confirmed += stat.Confirmed;
       globalStat.Recovered += stat.Recovered;
       globalStat.Deaths += stat.Deaths;
@@ -184,6 +186,10 @@ export class Covid19SourceService {
           ISO3: item.countryInfo.iso3
         },
         Stats: [
+          {
+            Confirmed: item.todayCases,
+            Deaths: item.todayDeaths
+          },
           {
             Confirmed: item.cases,
             Recovered: item.recovered,
@@ -214,6 +220,10 @@ export class Covid19SourceService {
             },
             Stats: [
               {
+                Confirmed: item.todayCases,
+                Deaths: item.todayDeaths
+              },
+              {
                 Confirmed: item.cases,
                 Recovered: item.recovered,
                 Deaths: item.deaths,
@@ -225,7 +235,8 @@ export class Covid19SourceService {
                 LastUpdate: new Date(item.updated)
               }]
 
-          })))
+          }))),
+      map((list: CountryStat[]) => _.orderBy(list, o => _.last(o.Stats).Confirmed, OrderType.DESC))
     );
   }
 
