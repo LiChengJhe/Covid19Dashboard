@@ -91,4 +91,7 @@ export class KeyVal {
 }
 
 
-
+export enum OrderType {
+  ASC = 'asc',
+  DESC = 'desc'
+}

@@ -3,6 +3,7 @@ import { ChartOptions } from '../../models/chart';
 import { CountryStat, Stat } from '../../models/covid19-model';
 import { ApexAxisChartSeries } from 'ng-apexcharts';
 import * as _ from 'lodash';
+import { OrderType } from 'src/app/utility/models/obj';
 
 @Component({
   selector: 'app-country-stat-bar-chart',
@@ -82,7 +83,7 @@ export class CountryStatBarChartComponent implements OnInit, OnChanges {
   }
 
   GetSeries(stats: CountryStat[], top: number): ApexAxisChartSeries {
-    const topStats: CountryStat[] = _.chain(stats).orderBy(o => _.last(o.Stats).Confirmed).reverse().take(top).value();
+    const topStats: CountryStat[] = _.chain(stats).orderBy(o => _.last(o.Stats).Confirmed,OrderType.DESC).take(top).value();
 
     const confirmed = { name: '確診', data: [] };
     const deaths = { name: '死亡', data: [] };
@@ -97,6 +98,6 @@ export class CountryStatBarChartComponent implements OnInit, OnChanges {
   }
   GetCountries(stats: CountryStat[], top: number): string[] {
 
-    return _.chain(stats).orderBy(o => _.last(o.Stats).Confirmed).reverse().take(top).map(o => o.Country.Name).value();
+    return _.chain(stats).orderBy(o => _.last(o.Stats).Confirmed,OrderType.DESC).take(top).map(o => o.Country.Name).value();
   }
 }
