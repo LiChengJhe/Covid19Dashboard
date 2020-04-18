@@ -174,7 +174,7 @@ export class Covid19SourceService {
 
 
   GetCountryStat(country: Country): Observable<CountryStat> {
-    const url: string = this._CoronaNinjaApi.GetURL(`countries/${country.ISO3}`);
+    const url: string = this._CoronaNinjaApi.GetURL(`v2/countries/${country.ISO3}`);
     return this.httpClient.get(url).pipe(
       // tap((o) => console.log(o)),
       map((item: any) => ({
@@ -201,7 +201,7 @@ export class Covid19SourceService {
 
 
   GetCountryStats(): Observable<CountryStat[]> {
-    const url: string = this._CoronaNinjaApi.GetURL(`countries`);
+    const url: string = this._CoronaNinjaApi.GetURL(`v2/countries`);
     return this.httpClient.get(url).pipe(
       // tap((o) => console.log(o)),
       map((list: any) =>
