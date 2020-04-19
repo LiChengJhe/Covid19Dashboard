@@ -86,8 +86,8 @@ export class Covid19SourceService {
 
         countryStats.forEach(element => {
           element.Stats.forEach(item => {
-            item.RecoveredRate = _.round((item.Recovered / item.Confirmed) * 100, 2),
-              item.DeathRate = _.round((item.Deaths / item.Confirmed) * 100, 2)
+            item.RecoveredRate = _.round((item.Recovered / item.Confirmed) * 100, 2);
+            item.DeathRate = _.round((item.Deaths / item.Confirmed) * 100, 2);
           });
         });
 
