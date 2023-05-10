@@ -30,7 +30,7 @@
     "apexcharts": "^3.17.1",
     "bootstrap": "^4.4.1",
     "classlist.js": "^1.1.20150312",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "lodash": "^4.17.15",
     "ng-apexcharts": "^1.2.2",
     "ng-multiselect-dropdown": "^0.2.10",
